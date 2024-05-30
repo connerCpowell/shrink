@@ -1,9 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import { ScrollView, Text, View, Image } from 'react-native';
-import { Link } from 'expo-router';
+import { Redirect, router, Link } from 'expo-router';
 import { useFonts } from 'expo-font';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { images } from "../constants"
+import CustomButton from '../components/CustomButton';
 
 export default function App() {
   return (
@@ -30,10 +31,22 @@ export default function App() {
               rezieMode="contain"
             />
 
+            <Text className="text-sm font-pregular text-gray-100 mt-7 text-center">
+              Why wouldnt you date a doctor? We have a reason
+            </Text>
+
+            <CustomButton 
+            title="continue to email"
+            handlePress={() => router.push('/sign-in')}
+            containerStyles="w-full mt-7"/>
+
           </View>
         </View>
 
       </ScrollView>
+
+      <StatusBar backgroundColor='#161622'
+      style='light'/>
 
     </SafeAreaView>
   );
